@@ -1,4 +1,0 @@
-DevMock
-=======
-
-Coding Dojo
