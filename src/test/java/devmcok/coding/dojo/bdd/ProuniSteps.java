@@ -39,7 +39,28 @@ public class ProuniSteps {
 
 	@Then("informar indisponibilidade ao aluno devido a nota igual $notaFinal")
 	public void mostraResultadoFinal(double notaFinal) {
-		Assert.assertFalse(valida);
+		Assert.assertTrue(valida);
 	}
 
+	@Given("Registro de um aluno $nomeAluno com nota de $ponto e deseja se matricular em $curso")
+	public void deveRegistrarAlunoProuni2(String nomeAluno, double ponto,
+			String curso) {
+		this.nomeAluno = nomeAluno;
+		this.ponto = BigDecimal.valueOf(ponto);
+		this.curso = curso;
+	}
+
+	@When("a nota minima permitida e $ponto pela instituicao e o $curso oferecer vaga para o prouni")
+	public void validaNota() {
+		if (ponto.intValue() >= 850 && curso.equals("SI")) {
+			this.valida = true;
+		}
+	}
+
+	@Then("efetivar matricula de aluno no curso com desconto")
+	public void efetuaMatricula() {
+
+		Assert.assertTrue(valida);
+
+	}
 }

@@ -26,7 +26,7 @@ public class Prouni extends InjectableEmbedder {
 	public void run() throws Throwable {
 		List<String> storyPaths = new StoryFinder().findPaths(
 				CodeLocations.codeLocationFromPath("src/resources"),
-				"stories/*.story", "");
+				"stories/Prouni/*.story", "");
 		injectedEmbedder().runStoriesAsPaths(storyPaths);
 	}
 
